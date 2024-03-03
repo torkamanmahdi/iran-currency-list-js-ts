@@ -1,0 +1,105 @@
+@font-face {
+  font-family: 'Vazirmatn';
+  src: url('Vazirmatn[wght].woff2') format('woff2 supports variations'),
+       url('Vazirmatn[wght].woff2') format('woff2-variations');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: 'Vazirmatn';
+  font-feature-settings: "ss01";
+}
+
+.currency__container {
+  font-size: 15px;
+  /* width: 100%; */
+  background: rgb(68, 68, 68);
+  display: none;
+  color: white;
+  /* position: fixed;
+  bottom: 0;
+  left: 0; */
+  box-sizing: border-box;
+  z-index: 9;
+  background: #333;
+  padding: 5px;
+}
+.currency__last-update {
+  padding: 5px 5px 10px;
+  text-align: center;
+  /* width: 100%; */
+}
+.currency__sub-container {
+  overflow: hidden;
+  background: #555;
+  border-radius: 10px;
+  padding: 10px;
+  /* width: 100%; */
+}
+.currency__prices {
+  gap: 20px;
+  display: flex;
+  margin: auto;
+  width: max-content;
+}
+.currency__item {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+  box-sizing: border-box;
+  position: relative;
+}
+.currency__item:not(:last-child)::before {
+  content: "";
+  width: 1px;
+  height: 70%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 10px;
+  left: -10px;
+  background: #444;
+}
+
+.currency__item-price {
+  font-weight: bold;
+  color: #009dd1;
+}
+.currency__item-title.high {
+  color: #8fff8f;
+}
+.currency__item-title.high::before {
+  content: "▲";
+  margin-left: 5px;
+}
+.currency__item-title.low {
+  color: #ff9696;
+}
+.currency__item-title.low::before {
+  content: "▼";
+  margin-left: 5px;
+}
+
+@media screen and (max-width: 750px) {
+  .currency__prices {
+    animation: linear infinite;
+    animation-name: left-to-right;
+    animation-duration: 15s;
+  }
+}
+
+@keyframes left-to-right {
+  0% {
+    transform: translateX(-100vw);
+  }
+  50% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100vw);
+  }
+}
